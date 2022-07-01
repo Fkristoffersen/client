@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Axios from 'axios';
 
 function App() {
   const [FirstName, setFirstName] = useState('');
@@ -7,6 +8,20 @@ function App() {
   const [Address, setAddress] = useState('');
   const [Postal, setPostal] = useState('');
   const [Phone, setPhone] = useState('');
+
+  const addStudent = () => {
+    Axios.post('http://localhost:3001/post', {
+      //Buddy Object sending to backend (Server)
+      FirstName: FirstName,
+      LastName: LastName,
+      Address: Address,
+      Postal: Postal,
+      Phone: Phone,
+    }).then(() => {
+      //.then = promise
+      console.log('Success');
+    });
+  };
 
   return (
     <div className="App">
@@ -51,7 +66,7 @@ function App() {
           }}
         />
 
-        <button>Add</button>
+        <button onClick={addStudent}>Add</button>
       </div>
     </div>
   );
