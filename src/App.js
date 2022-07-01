@@ -10,7 +10,7 @@ function App() {
   const [Phone, setPhone] = useState('');
 
   const addStudent = () => {
-    Axios.post('http://localhost:3001/post', {
+    Axios.post('https://localhost:7226/students/Create', {
       //Buddy Object sending to backend (Server)
       FirstName: FirstName,
       LastName: LastName,
